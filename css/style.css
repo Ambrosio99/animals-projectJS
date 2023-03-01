@@ -85,6 +85,10 @@ img {
 .animais-lista li {
   cursor: pointer;
 }
+.animais-lista li img:hover {
+  max-width: 104%;
+  transition: 0.4s;
+}
 
 .animais-descricao {
   grid-column: 3;
@@ -102,6 +106,7 @@ img {
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   color: #e54;
+  cursor: pointer;
 }
 .faq-lista dt::before {
   content: "";
@@ -160,6 +165,9 @@ img {
 .animais-lista::-webkit-scrollbar-track {
   background: #faf6ed;
 }
+.animais-lista::-webkit-scrollbar:horizontal {
+  display: none;
+}
 
 /* Responsive */
 
@@ -197,17 +205,14 @@ img {
 
 /* CSS for Javascript */
 
+/* NavList img / text */
 .js .js-tabcontent section.show {
   display: block;
   animation: showcontent 0.7s forwards;
 }
-
 .js .js-tabcontent section {
   display: none;
 }
-
-/* Animation CSS for JS */
-
 @keyframes showcontent {
   from {
     opacity: 0;
@@ -216,5 +221,31 @@ img {
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+/* FaqList show/hide text */
+.js .js-accordion dd {
+  display: none;
+}
+.js .js-accordion dd.showdd {
+  display: block;
+  animation: showddcontent 0.7s forwards;
+}
+.js-accordion dt::after {
+  content: "▼";
+  margin-left: 10px;
+}
+.js-accordion dt.showdd::after {
+  content: "▲";
+}
+@keyframes showddcontent {
+  from {
+    opacity: 0;
+    max-height: 0px;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
   }
 }
