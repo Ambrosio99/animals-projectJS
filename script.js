@@ -39,3 +39,26 @@ function FaqList() {
   }
 }
 FaqList();
+
+// Scroll Links
+function scrollpage() {
+  const linkinterno = document.querySelectorAll(".js-menu a[href^='#']");
+
+  function ScrollTo(event) {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute("href");
+    const section = document.querySelector(href);
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    // Alternative code
+    // window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
+  }
+
+  linkinterno.forEach((link) => {
+    link.addEventListener("click", ScrollTo);
+  });
+}
+scrollpage();
