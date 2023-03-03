@@ -41,7 +41,7 @@ function FaqList() {
 FaqList();
 
 // Scroll Links
-function scrollpage() {
+function scrollToSection() {
   const linkinterno = document.querySelectorAll(".js-menu a[href^='#']");
 
   function ScrollTo(event) {
@@ -52,7 +52,6 @@ function scrollpage() {
       behavior: "smooth",
       block: "start",
     });
-
     // Alternative code
     // window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
   }
@@ -61,4 +60,24 @@ function scrollpage() {
     link.addEventListener("click", ScrollTo);
   });
 }
-scrollpage();
+scrollToSection();
+
+// Scroll Animation
+function scrollAnimation() {
+  const sections = document.querySelectorAll(".js-scroll");
+  if (sections.length) {
+    const windowMet = window.innerHeight * 0.6;
+
+    function scrollAnimated() {
+      sections.forEach((section) => {
+        const sectiontop = section.getBoundingClientRect().top - windowMet;
+        if (sectiontop < 0) {
+          section.classList.add("ativo");
+        }
+      });
+    }
+    window.addEventListener("scroll", scrollAnimated);
+    scrollAnimated();
+  }
+}
+scrollAnimation();
