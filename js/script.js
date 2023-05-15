@@ -5,6 +5,7 @@ import accordion from "./modules/Accordion.js";
 import modal from "./modules/modal.js";
 import tooltip from "./modules/tooltip.js";
 import dropdownMenu from "./modules/dropdownMenu.js";
+import menuMobile from "./modules/menu-mobile.js";
 
 animacaoScroll();
 scrollSuave();
@@ -13,3 +14,4 @@ accordion();
 tooltip();
 modal();
 dropdownMenu();
+menuMobile();
